@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Quiz</title>
+    <title>Highscores</title>
     
     <!--Bootstrap style sheet-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -13,22 +13,26 @@
 
 </head>
 <body>
+    <!-- This header is with BootStrap -->
+    <!-- Header contains 1 custom IDs: codeQuiz -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" id="codeQuiz" href="https://02dade12.github.io/Coding_Quiz/">Code Quiz</a>
+            </div>
+          </nav>
+    </header>
 
+</br>
+</br>
+    <!-- <Main> contains 4 custom IDs: HighScoresContainer, HighscoreTitle, scorelist, & clearScores-button-->
     <section>
         <div class="container" id="HighScoresContainer">
             <div class="row row-cols-1 text-center">
                 <div class="col h1" id="HighscoreTitle">Highscores</div>
                 <div class="col" id="scorelist">1. Test</div>
                 <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <button type="button" class="btn btn-primary btn-md" id="goBack-button">Go Back</button>
-                        </div>
-                        <div class="col">
-                            <button type="button" class="btn btn-primary btn-md" id="clearScores-button">Clear Scores</button>
-
-                        </div>
-                    </div>
+                    <button type="button" class="btn btn-primary btn-md" id="clearScores-button">Clear Scores</button>
                 </div>
             </div>
         </div>
