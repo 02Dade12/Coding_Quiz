@@ -69,7 +69,7 @@ function startTimer(){
 timer = setInterval(function(){
   if(timerCount <= 0){
     clearInterval(timer);
-    document.getElementById("timer-Count").innerHTML = "Finished";
+    document.getElementById("timer-Count").innerHTML = "Times Up!";
   } else {
     document.getElementById("timer-Count").innerHTML = "Time: " + timerCount;
   }
@@ -86,15 +86,16 @@ function promptQuestions(){
   var choiceArr = allQuestionsArr[currentQuestionIndex].choices;
   for (var i = 0 ; i < choiceArr.length; i++){
   var button = document.createElement("button");
-  button.classList.add("choice-buttons", "btn", "btn-primary", "mt-2", "btn-sm");
+  button.classList.add("choice-buttons", "btn", "btn-primary", "mt-2");
   button.textContent = choiceArr[i];
   displayChoicesEle.appendChild(button);
 };
+
 var choiceButtons = document.querySelectorAll(".choice-buttons");
 choiceButtons.forEach(element => {
-  // if ()
-  
+  // if user selects correct button, it is tallied correct or incorrect in local storage
   console.log(element);
+
 });
 }
 
