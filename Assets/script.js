@@ -44,21 +44,24 @@ var allQuestionsArr = [questionOne, questionTwo, questionThree, questionFour, qu
 
 // Global Variables
 var timer;
-var timerCount =30;
+var timerCount;
 var isCorrect = false;
 var correctCounter = 0;
 var incorrectCounter = 0;
 var currentQuestionIndex = 0;
 
-// // The init function is called when the page loads
-// function init(){
-//   getCorrect();
-//   getIncorrect();
-// }
+// The init function is called when the page loads 
+function init() {
+  getCorrect();
+  getIncorrect();
+}
 
 // The startGame function is called when the start button is clicked
-function startGame(){
-  isCorrect = false;
+function startGame() {
+  timerCount = 29;
+  startTimer();
+  startContainerEle.classList.add("visually-hidden");
+  promptQuestions();
 }
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
@@ -89,17 +92,44 @@ function promptQuestions(){
 };
 var choiceButtons = document.querySelectorAll(".choice-buttons");
 choiceButtons.forEach(element => {
+  // if ()
+  
   console.log(element);
 });
 }
 
+// Updates correct count and sets correct counter to client storage
+function setCorrect(){
+  localStorage.setItem("correctCount", correctCounter);
+};
 
+// Updates incorrect count and sets incorrect counter to client storage
+function setIncorrect() {
+  localStorage.setItem("incorrectCount", incorrectCounter);
+}
 
+// These functions are used by init
+function getCorrect() {
+  // Get stored value from client storage, if it exists
+  var storedCorrect = localStorage.getItem("correctCount");
+  // If stored value doesn't exist, set counter to 0
+  if (storedCorrect === null) {
+    correctCounter = 0;
+  } else {
+    // If a value is retrieved from client storage set the winCounter to that value
+    correctCounter = storedCorrect;
+  }
+}
+
+function getIncorrect() {
+  var storedIncorrect = localStorage.getItem("incorrectCount");
+  if (storedIncorrect === null) {
+    incorrectCount = 0;
+  } else {
+    incorrectCount = storedIncorrect;
+  }
+}
 
 // Attach event listener to start button to call startGame function on click
-startButton.addEventListener("click", function(){
-  startTimer();
-  startContainerEle.classList.add("visually-hidden");
-  promptQuestions();
-});
+startButton.addEventListener("click", startGame);
 
