@@ -92,6 +92,7 @@ function promptQuestions(){
 };
 
 var choiceButtons = document.querySelectorAll(".choice-buttons");
+
 choiceButtons.forEach(element => {
   // if user selects correct button, it is tallied correct or incorrect in local storage
   console.log(element);
@@ -109,19 +110,17 @@ function setIncorrect() {
   localStorage.setItem("incorrectCount", incorrectCounter);
 }
 
-// These functions are used by init
+// These functions are used by init; get stored correct/incorrect values from client storage, if they exist
 function getCorrect() {
-  // Get stored value from client storage, if it exists
   var storedCorrect = localStorage.getItem("correctCount");
-  // If stored value doesn't exist, set counter to 0
   if (storedCorrect === null) {
     correctCounter = 0;
   } else {
-    // If a value is retrieved from client storage set the winCounter to that value
     correctCounter = storedCorrect;
   }
 }
 
+// These functions are used by init; get stored incorrect values from client storage, if they exist
 function getIncorrect() {
   var storedIncorrect = localStorage.getItem("incorrectCount");
   if (storedIncorrect === null) {
@@ -133,4 +132,3 @@ function getIncorrect() {
 
 // Attach event listener to start button to call startGame function on click
 startButton.addEventListener("click", startGame);
-
